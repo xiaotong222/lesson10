@@ -1,0 +1,148 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at top, #eef2ff 0%, #f4f4f8 45%, #f8fafc 100%);
+  color: #111827;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.app-shell {
+  width: min(460px, 100%);
+  text-align: center;
+}
+
+h1 {
+  font-size: clamp(1.8rem, 2.5vw, 2.6rem);
+  margin: 0 0 24px;
+}
+
+.timer-card {
+  background: #ffffff;
+  border-radius: 32px;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+  padding: 32px 28px;
+}
+
+.session-label {
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #6366f1;
+  margin-bottom: 18px;
+}
+
+.timer-ring {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  margin: 0 auto 24px;
+}
+
+.timer-ring svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.progress-ring__bg,
+.progress-ring__circle {
+  fill: none;
+  stroke-width: 16;
+}
+
+.progress-ring__bg {
+  stroke: #e5e7eb;
+}
+
+.progress-ring__circle {
+  stroke: #4f46e5;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.9s linear, stroke 0.35s ease;
+}
+
+.timer-display {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: clamp(2.8rem, 5vw, 3.8rem);
+  font-weight: 700;
+  color: #111827;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(120px, 1fr));
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+button {
+  border: none;
+  border-radius: 999px;
+  padding: 14px 22px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.18s ease, background-color 0.18s ease, opacity 0.18s ease;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+#startButton {
+  background: #4f46e5;
+  color: #ffffff;
+}
+
+#pauseButton,
+#resumeButton {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+#resetButton {
+  background: #f97316;
+  color: #ffffff;
+}
+
+.session-count {
+  font-size: 0.95rem;
+  color: #475569;
+}
+
+@media (max-width: 420px) {
+  .timer-card {
+    padding: 24px 18px;
+  }
+
+  .timer-ring {
+    width: 220px;
+    height: 220px;
+  }
+
+  .controls {
+    grid-template-columns: 1fr;
+  }
+}
